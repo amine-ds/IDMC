@@ -1,0 +1,590 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_load_SalesOrderHeader",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2025-05-25T12:37:07.499Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "SalesOrderID"
+            },
+            "name" : "SalesOrderID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OrderDate"
+            },
+            "name" : "OrderDate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "converdate"
+            },
+            "name" : "converdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesOrderNumber"
+            },
+            "name" : "SalesOrderNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PurchaseOrderNumber"
+            },
+            "name" : "PurchaseOrderNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CustomerID"
+            },
+            "name" : "CustomerID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesPersonID"
+            },
+            "name" : "SalesPersonID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ShipToAddressID"
+            },
+            "name" : "ShipToAddressID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@3PcdEJswuIFcnPvemECNS4",
+          "connectionName" : "CDI_MSSQL_ADV",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "SqlServer",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "customQuery" : "select SalesOrderID,\nOrderDate,\nTRY_CONVERT(date, OrderDate, 112) as converdate,\nSalesOrderNumber,\nPurchaseOrderNumber,\nCustomerID, \nSalesPersonID,\nShipToAddressID\nfrom Sales.SalesOrderHeader\nwhere TRY_CONVERT(date, OrderDate, 112) >= CAST(DATEADD(YEAR, -12, GETDATE()) AS date)",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "SalesOrderID",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesOrderID",
+                "nativeName" : "SalesOrderID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "OrderDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "OrderDate",
+                "nativeName" : "OrderDate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "converdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "converdate",
+                "nativeName" : "converdate",
+                "nativeType" : "timestamp",
+                "original" : "false",
+                "precision" : 23,
+                "scale" : 3
+              },
+              {
+                "name" : "SalesOrderNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesOrderNumber",
+                "nativeName" : "SalesOrderNumber",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "PurchaseOrderNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "PurchaseOrderNumber",
+                "nativeName" : "PurchaseOrderNumber",
+                "nativeType" : "nvarchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0
+              },
+              {
+                "name" : "CustomerID",
+                "fieldType" : "CONNECTOR",
+                "label" : "CustomerID",
+                "nativeName" : "CustomerID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "SalesPersonID",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesPersonID",
+                "nativeName" : "SalesPersonID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              },
+              {
+                "name" : "ShipToAddressID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ShipToAddressID",
+                "nativeName" : "ShipToAddressID",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2025-05-25T12:37:07.500Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "false",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "SalesOrderID"
+            },
+            "name" : "SalesOrderID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OrderDate"
+            },
+            "name" : "OrderDate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "converdate"
+            },
+            "name" : "converdate",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesOrderNumber"
+            },
+            "name" : "SalesOrderNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PurchaseOrderNumber"
+            },
+            "name" : "PurchaseOrderNumber",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 25,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CustomerID"
+            },
+            "name" : "CustomerID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SalesPersonID"
+            },
+            "name" : "SalesPersonID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ShipToAddressID"
+            },
+            "name" : "ShipToAddressID",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@2j5RYJWnnmTiOCm3ZcNV4I",
+          "connectionName" : "ABE_SNOW",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "SqlServer",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "DEV/DBO/SalesOrderHeader",
+            "label" : "DEV/DBO/SalesOrderHeader",
+            "path" : "DEV/DBO/SalesOrderHeader",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "SalesOrderID",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesOrderID",
+                "nativeName" : "SalesOrderID",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "OrderDate",
+                "fieldType" : "CONNECTOR",
+                "label" : "OrderDate",
+                "nativeName" : "OrderDate",
+                "nativeType" : "timestampntz",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "converdate",
+                "fieldType" : "CONNECTOR",
+                "label" : "converdate",
+                "nativeName" : "converdate",
+                "nativeType" : "timestampntz",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "SalesOrderNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesOrderNumber",
+                "nativeName" : "SalesOrderNumber",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "PurchaseOrderNumber",
+                "fieldType" : "CONNECTOR",
+                "label" : "PurchaseOrderNumber",
+                "nativeName" : "PurchaseOrderNumber",
+                "nativeType" : "varchar",
+                "original" : "false",
+                "precision" : 25,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "CustomerID",
+                "fieldType" : "CONNECTOR",
+                "label" : "CustomerID",
+                "nativeName" : "CustomerID",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "SalesPersonID",
+                "fieldType" : "CONNECTOR",
+                "label" : "SalesPersonID",
+                "nativeName" : "SalesPersonID",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              },
+              {
+                "name" : "ShipToAddressID",
+                "fieldType" : "CONNECTOR",
+                "label" : "ShipToAddressID",
+                "nativeName" : "ShipToAddressID",
+                "nativeType" : "number",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "isNullable",
+                    "value" : "true"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SalesOrderHeader"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "tableFormat",
+                "value" : "Standard Table"
+              },
+              {
+                "name" : "parent",
+                "value" : "DEV/DBO"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "true",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false",
+            "tgtObjectAttributes" : [
+              {
+                "name" : "tableFormat",
+                "value" : "Standard Table"
+              },
+              {
+                "name" : "parent",
+                "value" : "DEV/DBO"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-11-12 22:16:06 CET"
+}
