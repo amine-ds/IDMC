@@ -132,7 +132,7 @@
           "typeSystem" : "SqlServer",
           "useDynamicFileName" : "false",
           "object" : {
-            "customQuery" : "select SalesOrderID,\nOrderDate,\nTRY_CONVERT(date, OrderDate, 112) as converdate,\nSalesOrderNumber,\nPurchaseOrderNumber,\nCustomerID, \nSalesPersonID,\nShipToAddressID\nfrom Sales.SalesOrderHeader\nwhere TRY_CONVERT(date, OrderDate, 112) >= CAST(DATEADD(YEAR, -12, GETDATE()) AS date)",
+            "customQuery" : "select SalesOrderID,\nOrderDate,\nTRY_CONVERT(date, OrderDate, 112) as converdate,\nSalesOrderNumber,\nPurchaseOrderNumber,\nCustomerID, \nSalesPersonID,\nShipToAddressID\nfrom Sales.SalesOrderHeader",
             "retainMetadata" : "false",
             "fields" : [
               {
